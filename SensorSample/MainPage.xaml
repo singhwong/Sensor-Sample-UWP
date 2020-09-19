@@ -1,0 +1,50 @@
+﻿<Page
+    x:Class="SensorSample.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:SensorSample"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid VerticalAlignment="Center" HorizontalAlignment="Center">
+        <RelativePanel>
+            <TextBox x:Name="LightTB" Width="200" Header="Light Sensor Illuminance" Text="{x:Bind LightVM.Illuminance,Mode=OneWay}"/>
+            <Button x:Name="LoadLightBtn" Margin="10,0" Content="Load" RelativePanel.RightOf="LightTB" 
+                    RelativePanel.AlignVerticalCenterWith="LightTB" Tapped="{x:Bind LightVM.OnGetLight}"/>
+            <Button Content="Report" RelativePanel.RightOf="LoadLightBtn" RelativePanel.AlignVerticalCenterWith="LightTB" 
+                    Tapped="{x:Bind LightVM.OnGetLightReport}"/>
+            <TextBox x:Name="CompassTB"  Width="200" Header="Compass Sensor Info" Text="{x:Bind CompassVM.CompassInfo,Mode=OneWay}"
+                     RelativePanel.Below="LightTB"/>
+            <Button x:Name="LoadCompassBtn" Margin="10,0" Content="Load" RelativePanel.Below="LoadLightBtn" RelativePanel.RightOf="CompassTB"
+                    RelativePanel.AlignVerticalCenterWith="CompassTB" Tapped="{x:Bind CompassVM.OnGetCompass}"/>
+            <Button Content="Report" RelativePanel.Below="LoadLightBtn" RelativePanel.RightOf="LoadCompassBtn"
+                    RelativePanel.AlignVerticalCenterWith="CompassTB" Tapped="{x:Bind CompassVM.OnGetCompassReport}"/>
+            <TextBox x:Name="AccelerometerTB"  Width="200" RelativePanel.Below="CompassTB" Header="Accelerometer Sensor Info" 
+                     Text="{x:Bind AccelerometerVM.AccelerometerInfo,Mode=OneWay}"/>
+            <Button x:Name="AccelerometerBtn" Margin="10,0" Content="Load" RelativePanel.Below="CompassTB" RelativePanel.RightOf="AccelerometerTB"
+                    RelativePanel.AlignVerticalCenterWith="AccelerometerTB" Tapped="{x:Bind AccelerometerVM.OnGetAccelerometer}"/>
+            <Button Content="Report" RelativePanel.Below="CompassTB" RelativePanel.RightOf="AccelerometerBtn"
+                    RelativePanel.AlignVerticalCenterWith="AccelerometerTB"/>
+            <TextBox x:Name="InclinometerTB"  Width="200" RelativePanel.Below="AccelerometerTB" Header="Inclinometer Sensor Info" 
+                     Text="{x:Bind InclinometerVM.InclinometerInfo,Mode=OneWay}"/>
+            <Button x:Name="InclinometerBtn" Margin="10,0" Content="Load" RelativePanel.Below="AccelerometerTB" RelativePanel.RightOf="InclinometerTB"
+                    RelativePanel.AlignVerticalCenterWith="InclinometerTB" Tapped="{x:Bind InclinometerVM.OnGetInclinometer}"/>
+            <Button Content="Report" RelativePanel.Below="AccelerometerBtn" RelativePanel.RightOf="InclinometerBtn"
+                    RelativePanel.AlignVerticalCenterWith="InclinometerTB"/>
+            <TextBox x:Name="GyrometerTB"  Width="200" RelativePanel.Below="InclinometerTB" Header="Gyrometer Sensor Info" 
+                     Text="{x:Bind GyrometerVM.GyrometerInfo,Mode=OneWay}"/>
+            <Button x:Name="GyrometerBtn" Margin="10,0" Content="Load" RelativePanel.Below="InclinometerTB" RelativePanel.RightOf="GyrometerTB"
+                    RelativePanel.AlignVerticalCenterWith="GyrometerTB" Tapped="{x:Bind GyrometerVM.OnGetGyrometer}"/>
+            <Button Content="Report" RelativePanel.Below="InclinometerTB" RelativePanel.RightOf="GyrometerBtn"
+                    RelativePanel.AlignVerticalCenterWith="GyrometerTB"/>
+            <TextBox x:Name="OrientationTB" Width="200" RelativePanel.Below="GyrometerTB" Header="Orientation Sensor Info"
+                     Text="{x:Bind OrientationVM.OrientataionInfo,Mode=OneWay}"/>
+            <Button x:Name="OrientationBtn" Margin="10,0" Content="Load" RelativePanel.Below="GyrometerTB" RelativePanel.RightOf="OrientationTB"
+                    RelativePanel.AlignVerticalCenterWith="OrientationTB" Tapped="{x:Bind OrientationVM.OnGetOrientation}"/>
+            <Button Content="Report" RelativePanel.Below="GyrometerTB" RelativePanel.RightOf="OrientationBtn"
+                    RelativePanel.AlignVerticalCenterWith="OrientationTB"/>
+        </RelativePanel>
+    </Grid>
+</Page>
